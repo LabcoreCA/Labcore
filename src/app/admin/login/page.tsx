@@ -8,7 +8,6 @@ export const dynamic = "force-dynamic";
 
 export default function AdminLoginPage() {
   const router = useRouter();
-  const supabase = createClient();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,6 +19,8 @@ export default function AdminLoginPage() {
 
     setIsLoading(true);
     setErrorMessage("");
+
+    const supabase = createClient();
 
     const { error } = await supabase.auth.signInWithPassword({
       email,
