@@ -9,7 +9,6 @@ import { createClient } from "@/lib/supabase/client";
 export const dynamic = "force-dynamic";
 export default function NewProductPage() {
   const router = useRouter();
-  const supabase = createClient();
 
   const [imageUrl, setImageUrl] = useState("");
   const [uploading, setUploading] = useState(false);
@@ -20,6 +19,8 @@ export default function NewProductPage() {
     if (!file) return;
 
     setUploading(true);
+
+    const supabase = createClient();
 
     const fileExt = file.name.split(".").pop();
     const fileName = `${crypto.randomUUID()}.${fileExt}`;
@@ -45,6 +46,7 @@ export default function NewProductPage() {
     setSaving(true);
 
     const formData = new FormData(event.currentTarget);
+    const supabase = createClient();
 
     const { error } = await supabase.from("products").insert({
       name: String(formData.get("name") || ""),
