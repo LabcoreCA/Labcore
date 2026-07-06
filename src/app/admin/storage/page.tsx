@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/supabase/client";
 
 
 export const dynamic = "force-dynamic";
@@ -14,6 +14,8 @@ export default function AdminStoragePage() {
     if (!file) return;
 
     setUploading(true);
+
+    const supabase = createClient();
 
     const fileExt = file.name.split(".").pop();
     const fileName = `${crypto.randomUUID()}.${fileExt}`;
