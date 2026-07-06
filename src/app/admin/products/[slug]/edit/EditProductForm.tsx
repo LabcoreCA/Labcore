@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import type { Product } from "@/types/product";
 
+
+export const dynamic = "force-dynamic";
 export default function EditProductForm({ product }: { product: Product }) {
   const router = useRouter();
   const [imageUrl, setImageUrl] = useState(product.image);

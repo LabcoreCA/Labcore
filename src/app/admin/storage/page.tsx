@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { supabase } from "@/lib/supabase";
 
+
+export const dynamic = "force-dynamic";
 export default function AdminStoragePage() {
   const [uploading, setUploading] = useState(false);
   const [url, setUrl] = useState("");

@@ -2,6 +2,8 @@ import EditProductForm from "./EditProductForm";
 import { getProduct } from "@/lib/products";
 import { notFound } from "next/navigation";
 
+
+export const dynamic = "force-dynamic";
 export default async function EditProductPage({
   params,
 }: {
